@@ -770,38 +770,42 @@
 /* ── MOBILE E MEDIA QUERIES ── */
 @media (max-width: 768px) {
   section { 
-    padding: 60px 5%; /* Ajuste leve para dar mais respiro lateral */
+    /* Mantendo o padding original do usuário para não alterar o layout geral */
+    padding: 60px 6%; 
   }
   
   nav { padding: 0 6%; z-index: 1000; }
   .nav-links { display: none; }
   .hero-name { font-size: 2.5rem; line-height: 1.1; margin-bottom: 15px; }
 
-  /* 1. CONTAINER DOS CARDS: Alinhamento Total à Direita */
+  /* 1. CONTAINER DOS CARDS: Alinhamento Total à Direita e Distribuição */
   .hero-stats { 
     position: relative; 
     display: flex;
     flex-direction: column;    /* Empilhamento vertical */
     align-items: flex-end;      /* Garante que todos encostem na direita */
-    justify-content: center;    /* Centralização harmônica do bloco */
-    gap: 20px;                 /* Espaçamento igual e maior para fluidez */
-    margin-top: 40px; 
-    width: 100%;
-    padding-right: 2%;         /* O "mínimo espaçamento" do canto direito */
+    justify-content: flex-start; /* Alinha os cards no início do contêiner */
+    gap: 35px;                 /* Aumentado significativamente para melhor distribuição vertical e fluidez */
+    margin-top: 35px; 
+    
+    /* Novos ajustes para encostar totalmente à direita, ignorando o padding do pai */
+    width: calc(100% + 15px);   /* Faz o contêiner "sair" um pouco do fluxo para a direita */
+    margin-right: -10px;       /* Puxa o contêiner para a direita */
+    padding-right: 5px;        /* O "mínimo espaçamento" do canto direito real */
     transform: none;
   }
 
-  /* 2. CARDS: Ajuste de proporção e harmonia */
+  /* 2. CARDS: Ajuste de proporção e harmonia (Diminuídos) */
   .stat-card { 
-    padding: 12px 18px; 
+    padding: 8px 14px;          /* Padding reduzido para um tamanho menor */
     width: fit-content; 
-    min-width: 120px;          /* Aumentado levemente para melhor leitura */
-    background: rgba(255, 255, 255, 0.05); /* Exemplo de preenchimento para fluidez */
+    min-width: 90px;           /* Largura mínima reduzida */
+    background: rgba(30, 30, 30, 0.8); /* Preenchimento escuro e semi-transparente como na imagem */
     backdrop-filter: blur(10px);
-    border-radius: 12px;
-    border-right: 3px solid var(--primary-color); /* Destaque visual na borda direita */
+    border-radius: 10px;       /* Reduzido proporcionalmente */
+    border-right: 3px solid var(--primary-color); /* Mantendo destaque visual */
     text-align: right; 
-    transition: transform 0.3s ease; /* Suavidade ao interagir */
+    transition: transform 0.3s ease; 
   }
 
   /* Efeito de profundidade sutil */
@@ -810,13 +814,13 @@
   }
 
   .stat-num { 
-    font-size: 1.5rem; 
+    font-size: 1.2rem;         /* Fonte reduzida */
     font-weight: 700; 
     display: block; 
   }
 
   .stat-label { 
-    font-size: 0.7rem; 
+    font-size: 0.6rem;         /* Fonte reduzida */
     text-transform: uppercase; 
     letter-spacing: 1px;
     opacity: 0.8;
